@@ -41,7 +41,7 @@ public class TestVeiculoRepository {
 	@Test
 	public void testBuscarPorModelo(){
 		
-		Veiculos v = new Veiculos("VW", "Gol", "2013");
+		Veiculos v = new Veiculos("VW", "Gol", "2014");
 		entityManager.persist(v);
 		
 		Veiculos vEncontrado = veiculosRepository.buscarPorModelo("Gol");
