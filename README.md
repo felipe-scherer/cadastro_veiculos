@@ -6,4 +6,6 @@
 
 [![Test Coverage](https://codeclimate.com/github/felipe-scherer/cadastro_veiculos/badges/coverage.svg)](https://codeclimate.com/github/felipe-scherer/cadastro_veiculos/coverage)
 
+[![Known Vulnerabilities](https://snyk.io/test/github/snyk/goof/badge.svg)](https://snyk.io/test/github/snyk/goof)
+
 
