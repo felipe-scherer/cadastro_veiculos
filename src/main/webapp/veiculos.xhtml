@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head></h:head> 
+<body> 
+
+
+<h1>Cadastro de Veículos</h1>
+
+<h:form id="formVeiculo">
+
+Modelo: <h:inputText value="#{veiculosController.veiculo.modelo}"></h:inputText>
+Ano: <h:inputText value="#{veiculosController.veiculo.ano}"></h:inputText>
+Fabricante: <h:inputText value="#{veiculosController.veiculo.fabricante}"></h:inputText>
+
+<h:commandButton action="#{veiculosController.salvar}" value="Salvar">
+<f:ajax execute="formVeiculo" render="dtVeiculos" ></f:ajax>
+</h:commandButton>
+
+
+<h:dataTable value="#{veiculosController.veiculos}" var="v" id="dtVeiculos">
+
+	<h:column>#{v.id}</h:column>
+	<h:column>#{v.modelo}</h:column>
+	<h:column>#{v.ano}</h:column>
+	<h:column>#{v.fabricante}</h:column>
+
+</h:dataTable>
+
+
+</h:form>
+
+
+</body> 
+</html>
