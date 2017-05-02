@@ -23,10 +23,15 @@ Fabricante: <h:inputText value="#{veiculosController.veiculo.fabricante}"></h:in
 
 <h:dataTable value="#{veiculosController.veiculos}" var="v" id="dtVeiculos">
 
-	<h:column>#{v.id}</h:column>
-	<h:column>#{v.modelo}</h:column>
-	<h:column>#{v.ano}</h:column>
-	<h:column>#{v.fabricante}</h:column>
+	<h:column><f:facet name="header">ID</f:facet> #{v.id}</h:column>
+	<h:column><f:facet name="header">Modelo</f:facet> #{v.modelo}</h:column>
+	<h:column><f:facet name="header">Ano</f:facet>#{v.ano}</h:column>
+	<h:column><f:facet name="header">Fabricante</f:facet>#{v.fabricante}</h:column>
+	
+	<h:column><f:facet name="header">Delete</f:facet> 
+	<h:commandButton action="#{veiculosController.excluir(v)}" onclick="return window.confirm('Deseja realmente excluir?')" value="Excluir"></h:commandButton> 
+	<h:commandButton action="#{veiculosController.editar(v)}" value="Editar"></h:commandButton>
+	</h:column>
 
 </h:dataTable>
 

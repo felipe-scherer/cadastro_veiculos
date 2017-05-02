@@ -17,8 +17,12 @@ public class VeiculosController {
 	
 	@Autowired
 	private VeiculosRepository veiculosRepository;
+	//Formulario
 	private Veiculos veiculo = new Veiculos();
+	//Datatable
 	private List<Veiculos> veiculos;
+	
+	private boolean edicao = false;
 	
 	@PostConstruct
 	public void init(){
@@ -29,9 +33,26 @@ public class VeiculosController {
 	public void salvar(){
 		
 		veiculosRepository.save(veiculo);
-		veiculos.add(veiculo);
+		if (!edicao){
+			veiculos.add(veiculo);
+		}
 		veiculo = new Veiculos();
+		edicao=false;
 	}
+	
+	public void excluir(Veiculos veiculo){
+		veiculosRepository.delete(veiculo);
+		veiculos.remove(veiculo);	
+	}
+	
+	public void editar(Veiculos veiculo){
+		
+		this.veiculo = veiculo;
+		edicao=true;
+		
+	}
+	
+	
 	
 	public Veiculos getVeiculo() {
 		return veiculo;
