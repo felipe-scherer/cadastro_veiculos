@@ -7,3 +7,9 @@ addons:
 script:
   - mvn clean install
   - bash <(curl -s https://codecov.io/bash)
+  
+deploy:
+ provider: heroku
+ api-key: 
+  secure: $HEROKU_API_KEY
+ app: ci-spring-boot
