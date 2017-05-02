@@ -1,9 +1,14 @@
 language: java
 jdk: oraclejdk8
 install: true
+services:
+  - postgresql
 addons:
   code_climate:
     repo_token: 0e74bcec10f8e3a5ca954c97cf337cb1fb09a74e0eecc705fea6d281585152b9
+    
+before_script:
+  - psql -c 'create database veiculosdb;' -U postgres
 script:
   - mvn clean install
   - bash <(curl -s https://codecov.io/bash)
