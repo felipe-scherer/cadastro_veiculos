@@ -29,7 +29,7 @@ public class VeiculoRepositoryTests {
 
 	@Test
 	public void testSalvar(){
-		Veiculos v = new Veiculos("VW", "Gol", "2012" );
+		Veiculos v = new Veiculos("VW", "Gol", "2013" );
 		Veiculos vSalvo = veiculosRepository.save(v);
 		
 		Assert.assertNotNull(vSalvo.getId());
