@@ -17,7 +17,7 @@ import static org.assertj.core.api.Assertions.*;
 //banco interno para teste
 @DataJpaTest
 
-public class TestVeiculoRepository {
+public class VeiculoRepositoryTests {
 	
 	
 	@Autowired
