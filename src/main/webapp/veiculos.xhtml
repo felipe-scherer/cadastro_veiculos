@@ -17,9 +17,7 @@ Modelo: <h:inputText value="#{veiculosController.veiculo.modelo}"></h:inputText>
 Ano: <h:inputText value="#{veiculosController.veiculo.ano}"></h:inputText>
 Fabricante: <h:inputText value="#{veiculosController.veiculo.fabricante}"></h:inputText>
 Foto: <h:inputFile id="arquivo" value="#{veiculosController.fotografia}"></h:inputFile>
-
 <h:commandButton action="#{veiculosController.salvar}" value="Salvar">
-<f:ajax execute="formVeiculo" render="dtVeiculos" ></f:ajax>
 </h:commandButton>
 
 
@@ -39,7 +37,9 @@ Foto: <h:inputFile id="arquivo" value="#{veiculosController.fotografia}"></h:inp
 
 </h:dataTable>
 
-
+<input type="hidden"
+	name="${_csrf.parameterName}"
+	value="${_csrf.token}"/>
 </h:form>
 
 
