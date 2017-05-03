@@ -15,20 +15,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
-import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import org.springframework.util.FileCopyUtils;
+
 
 import br.com.felipe_scherer.model.Veiculos;
 import br.com.felipe_scherer.repository.VeiculosRepository;
@@ -75,7 +66,7 @@ public class VeiculosController {
 	public void salvar(){
 		
 		try{
-            InputStream is = fotografia.getInputStream();
+            InputStream is = fotografia.getInputStream();         
             byte[] bytes = IOUtils.toByteArray(is);
             
             veiculo.setFoto(bytes);
