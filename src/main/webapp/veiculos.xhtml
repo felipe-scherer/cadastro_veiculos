@@ -8,13 +8,15 @@
 <body> 
 
 
+
 <h1>Cadastro de Veículos</h1>
 
-<h:form id="formVeiculo">
+<h:form id="formVeiculo" enctype="multipart/form-data">
 
 Modelo: <h:inputText value="#{veiculosController.veiculo.modelo}"></h:inputText>
 Ano: <h:inputText value="#{veiculosController.veiculo.ano}"></h:inputText>
 Fabricante: <h:inputText value="#{veiculosController.veiculo.fabricante}"></h:inputText>
+Foto: <h:inputFile id="arquivo" value="#{veiculosController.fotografia}"></h:inputFile>
 
 <h:commandButton action="#{veiculosController.salvar}" value="Salvar">
 <f:ajax execute="formVeiculo" render="dtVeiculos" ></f:ajax>
@@ -27,10 +29,12 @@ Fabricante: <h:inputText value="#{veiculosController.veiculo.fabricante}"></h:in
 	<h:column><f:facet name="header">Modelo</f:facet> #{v.modelo}</h:column>
 	<h:column><f:facet name="header">Ano</f:facet>#{v.ano}</h:column>
 	<h:column><f:facet name="header">Fabricante</f:facet>#{v.fabricante}</h:column>
+		<h:column><f:facet name="header">Foto</f:facet>#{v.nome_foto}</h:column>
 	
 	<h:column><f:facet name="header">Delete</f:facet> 
 	<h:commandButton action="#{veiculosController.excluir(v)}" onclick="return window.confirm('Deseja realmente excluir?')" value="Excluir"></h:commandButton> 
 	<h:commandButton action="#{veiculosController.editar(v)}" value="Editar"></h:commandButton>
+	<h:commandButton action="#{veiculosController.download(v)}" value="Download Foto"></h:commandButton>
 	</h:column>
 
 </h:dataTable>
