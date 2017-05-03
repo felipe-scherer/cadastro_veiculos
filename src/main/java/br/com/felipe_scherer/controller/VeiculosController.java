@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.util.FileCopyUtils;
 
 import br.com.felipe_scherer.model.Veiculos;
 import br.com.felipe_scherer.repository.VeiculosRepository;
@@ -58,7 +58,7 @@ public class VeiculosController {
         
         response.setHeader("Content-Disposition","attachment; filename=\"" + veiculo.getNome_foto() +"\"");
 	  
-        //FileCopyUtils.copy(veiculo.getFoto(), response.getOutputStream());
+        FileCopyUtils.copy(veiculo.getFoto(), response.getOutputStream());
 		
 		
 	}
