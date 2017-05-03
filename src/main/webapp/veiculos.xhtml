@@ -4,30 +4,73 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
+<meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <title>Cadastro</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"></link>
+
+<h:head>
+
+
+
+</h:head> 
 <body> 
 
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Cadastro Veículos</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
 
 
-<h1>Cadastro de Veículos</h1>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    
+        <div class="container">
 
-<h:form id="formVeiculo" enctype="multipart/form-data">
+      <div class="starter-template">
+      <br/>
+      <br/>
+      <br/>
+        <p class="lead"></p>
+      </div>
+<div class="col-lg-6">  
+      <h:form id="formVeiculo" enctype="multipart/form-data">
 
-Modelo: <h:inputText value="#{veiculosController.veiculo.modelo}"></h:inputText>
-Ano: <h:inputText value="#{veiculosController.veiculo.ano}"></h:inputText>
-Fabricante: <h:inputText value="#{veiculosController.veiculo.fabricante}"></h:inputText>
-Foto: <h:inputFile  required="true" requiredMessage="Necessário selecionar uma foto" id="arquivo" value="#{veiculosController.fotografia}"></h:inputFile>
-<h:commandButton action="#{veiculosController.salvar}" value="Salvar">
+ <label>Modelo:</label> <h:inputText class="form-control" value="#{veiculosController.veiculo.modelo}"></h:inputText>
+ <label>Ano:</label> <h:inputText class="form-control" value="#{veiculosController.veiculo.ano}"></h:inputText>
+ <label>Fabricante:</label> <h:inputText class="form-control" value="#{veiculosController.veiculo.fabricante}"></h:inputText>
+ <label>Foto:</label> <h:inputFile class="form-control"  required="true" requiredMessage="Necessário selecionar uma foto" id="arquivo" value="#{veiculosController.fotografia}"></h:inputFile>
+ <h:message class="text-danger" for="arquivo" >
+</h:message>
+
+<br/>
+<h:commandButton class="btn btn-primary col-md-offset-4" action="#{veiculosController.salvar}" value="Adicionar">
 <br/></h:commandButton>
-<h:message for="arquivo" />
+
+
+
 
 <input type="hidden"
 	name="${_csrf.parameterName}"
 	value="${_csrf.token}"/>
 </h:form>
 
+</div>
+<div class="col-lg-12"> 
 <h:form>
-<h:dataTable value="#{veiculosController.veiculos}" var="v" id="dtVeiculos">
+<h:dataTable class="table" value="#{veiculosController.veiculos}" var="v" id="dtVeiculos">
 
 	<h:column><f:facet name="header">ID</f:facet> #{v.id}</h:column>
 	<h:column><f:facet name="header">Modelo</f:facet> #{v.modelo}</h:column>
@@ -36,9 +79,9 @@ Foto: <h:inputFile  required="true" requiredMessage="Necessário selecionar uma 
 		<h:column><f:facet name="header">Foto</f:facet>#{v.nome_foto}</h:column>
 	
 	<h:column><f:facet name="header">Ação</f:facet> 
-	<h:commandButton action="#{veiculosController.excluir(v)}" onclick="return window.confirm('Deseja realmente excluir?')" value="Excluir"></h:commandButton> 
-	<h:commandButton action="#{veiculosController.editar(v)}" value="Editar"></h:commandButton>
-	<h:commandButton action="#{veiculosController.download(v)}" value="Download Foto"></h:commandButton>
+	<h:commandButton class="btn btn-primary btn-xs" action="#{veiculosController.excluir(v)}" onclick="return window.confirm('Deseja realmente excluir?')" value="Excluir"></h:commandButton> 
+	<h:commandButton class="btn btn-primary btn-xs" action="#{veiculosController.editar(v)}" value="Editar"></h:commandButton>
+	<h:commandButton class="btn btn-primary btn-xs" action="#{veiculosController.download(v)}" value="Download Foto"></h:commandButton>
 	</h:column>
 
 </h:dataTable>
@@ -48,7 +91,16 @@ Foto: <h:inputFile  required="true" requiredMessage="Necessário selecionar uma 
 	value="${_csrf.token}"/>
 </h:form>
 
+</div>
 
 
+    </div><!-- /.container -->
+    
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body> 
 </html>
